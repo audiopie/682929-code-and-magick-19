@@ -4,11 +4,12 @@ var setup = document.querySelector('.setup');
 var similarListElement = document.querySelector('.setup-similar-list');
 var similarWizardTemplate = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
 
+
 var WIZARDS_COUNT = 4;
 var WIZARDS_NAMES = ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'];
-var WIZARDS_SURNAME = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
-var COAT_COLOR = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
-var EYE_COLOR = ['black', 'red', 'blue', 'yellow', 'green'];
+var WIZARDS_SURNAMES = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
+var COAT_COLORS = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
+var EYE_COLORS = ['black', 'red', 'blue', 'yellow', 'green'];
 
 // Функция, для случайного выбора из списка элементов для персонажа
 var getRandom = function (array) {
@@ -21,12 +22,12 @@ var makeArrayWizards = function () {
   var wizardsArray = [];
 
   for (var i = 0; i < WIZARDS_COUNT; i++) {
-    var wizards = {};
-    wizardsArray[i] = wizards;
-    wizardsArray[i].name = WIZARDS_NAMES[getRandom(WIZARDS_NAMES)];
-    wizardsArray[i].surname = WIZARDS_SURNAME[getRandom(WIZARDS_SURNAME)];
-    wizardsArray[i].coatColor = COAT_COLOR[getRandom(COAT_COLOR)];
-    wizardsArray[i].eyeColor = EYE_COLOR[getRandom(EYE_COLOR)];
+    wizardsArray[i] = {
+      name: WIZARDS_NAMES[getRandom(WIZARDS_NAMES)],
+      surname: WIZARDS_SURNAMES[getRandom(WIZARDS_SURNAMES)],
+      coatColor: COAT_COLORS[getRandom(COAT_COLORS)],
+      eyeColor: EYE_COLORS[getRandom(EYE_COLORS)],
+    };
   }
   return wizardsArray;
 };
